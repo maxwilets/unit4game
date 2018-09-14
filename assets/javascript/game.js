@@ -1,66 +1,91 @@
 
 
-var sephCard = {
-    name: "sephiroth",
-    hp: 180,
-    counter: 30,
-    atk: 14
-};
-
-var vinCard = {
-    name: "vincent",
-    hp: 140,
-    counter: 20,
-    atk: 10
-};
-var lightCard = {
-    name: "lightning",
-    hp: 120,
-    counter: 15,
-    atk: 8
-}
-var beaCard = {
-    name: "beatrix",
-    hp: 160,
-    counter: 25,
-    atk: 12
-};
 
 
 $(document).ready(function() {
-var seph = $(".sephiroth");
-console.log(seph); 
+    var sephCard = {
+        name: "sephiroth",
+        hp: 180,
+        counter: 30,
+        atk: 14
+    };
+    
+    var vinCard = {
+        name: "vincent",
+        hp: 140,
+        counter: 20,
+        atk: 10
+    };
+    var lightCard = {
+        name: "lightning",
+        hp: 120,
+        counter: 15,
+        atk: 8
+    }
+    var beaCard = {
+        name: "beatrix",
+        hp: 160,
+        counter: 25,
+        atk: 12
+    };
+    attacker= true
+
+    var charactersAr = [sephCard, lightCard, beaCard, vinCard];
+
+    var seph = $(".sephiroth");
+// console.log(seph); 
+
 
 var light = $(".lightning");
-console.log(light);
+// console.log(light)
 
 var bea = $(".beatrix");
-console.log(bea);
+// console.log(bea);
 
 var vin = $(".vincent");
-console.log(vin);
+// console.log(vin);
 
-heroB= bea.on("click", function() {
-    console.log("69");
+var heroes = [seph, light, bea, vin];
+var enemy;
+
+
+
+     
+         $(this).on("click", ".card", function(event) {
+    console.log(event.currentTarget.attributes.value.value);
+    var cardValue = event.currentTarget.attributes.value.value;
+    // heroes = [seph, light, bea, vin];
+
+    $(".character").after(this);
+    heroes.splice(parseInt(cardValue),1);
+    console.log("heroes--->", heroes);
+
+    attacker = false;
     
-    $(".character").after(bea);
-    var defenders = [];
-    defenders.push(vin, light, seph);
-    $(".attackl").append(defenders).addClass("def");
+    // console.log(defenders);
+    
+    $(".attackl").append(heroes).addClass("def").removeClass("card");
+    //  console.log($(".def"));
     
     attack= beaCard.atk;
-    damage = attack + beaCard.atk;
-    $(".def").on("click", function () {
-        console.log(defenders[0]);
-        append$(".enemy")
+    damage = attack + beaCard.atk;})
+    $(this).on("click", ".def", function (event) {
+        // console.log(this);
+       $(".enemy").after(this);
+      // enemys = event.currentTarget.attribues.value.value;
+      // heroes.splice(parseInt(enemys),1);
+        // console.log(enemy);
+       
+       })
+        
     })
 
     $("button").on("click", function() {
-       
-        fight = true;
-        damage = attack + beaCard.atk;
+       console.log("bad guy")
+      //  fight = true;
+      //  damage = attack + .atk;
 
-        console.log(damage);
+         console.log(damage);
         if (fight === true) {
             attack = attack + beaCard.atk;
             fight = false;
@@ -71,6 +96,5 @@ heroB= bea.on("click", function() {
     })
  
 
-})
 
-});
+

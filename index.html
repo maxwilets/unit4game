@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+    
 </head>
 
 <body background="assets\images\finalfantasyback.png">
@@ -26,7 +27,7 @@
         <div class="row" style="height: 40px"></div>
         <div class="row">
             <div class="col-lg-1"></div>
-            <div class="card beatrix" style="width: 225px;">
+            <div class="card beatrix" style="width: 225px;" value = "2" data-hp="160" data-counter="25" data-atk="12">
                 <img class="card-img-top" src="assets\images\beatrix.jpg" alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">
@@ -38,7 +39,7 @@
 
 
             </div>
-            <div class="card vincent" style="width:225px;">
+            <div class="card vincent" style="width:225px;"value = "3" data-hp = "140" data-counter="30" data-atk= "14" >
                 <img class="card-img-top" src="assets\images\vincent.png" alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">
@@ -48,8 +49,8 @@
                 </div>
             </div>
 
-            <div class="card lightning" style="width: 225px;">
-                <img class="card-img-top" src="assets\images\lightning.png" alt="Card image cap">
+            <div class="card lightning" style="width: 225px;" value = "1" data-hp = "120" adta-counter="15" data-atk= "8">
+                <img class="card-img-top" src="assets\images\lightning.png" alt="Card image cap" >
                 <div class="card-body">
                     <p class="card-text">
                         <h5>Lightning</h5>
@@ -58,7 +59,7 @@
 
                 </div>
             </div>
-            <div class="card sephiroth" style="width: 225px;" value="sephiroth">
+            <div class="card sephiroth" style="width: 225px;" value="0" data-hp="180" data-counter="30" data-atk="14">
                 <img class="card-img-top" src="assets\images\sephiroth.png" alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text"><h5>Sephiroth</h5></p>
@@ -80,9 +81,7 @@
         <div class = "row enemy" id="your"> <h5> Defender</h5></div>
     </div>
 
-<script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" >
-    </script>
-<script src= "assets/javascript/game.js"></script>
+
   
     
 </body>
