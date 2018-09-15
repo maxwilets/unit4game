@@ -51,22 +51,27 @@ var enemy;
 
 
      
-         $(this).on("click", ".card", function(event) {
+         $(this).on("click", ".hero", function(event) {
     console.log(event.currentTarget.attributes.value.value);
     var cardValue = event.currentTarget.attributes.value.value;
     // heroes = [seph, light, bea, vin];
 
     $(".character").after(this);
     heroes.splice(parseInt(cardValue),1);
-    console.log("heroes--->", heroes);
+    
 
     attacker = false;
     
     // console.log(defenders);
     
-    $(".attackl").append(heroes).addClass("def").removeClass("card");
+    $(".attackl").append(heroes);
+
     //  console.log($(".def"));
-    
+    for (var i=0; i <= heroes.length; i++) {
+        heroes[i].removeClass("hero");
+        heroes[i].addClass("def");
+        console.log(heroes.class)
+     }
     attack= beaCard.atk;
     damage = attack + beaCard.atk;})
     $(this).on("click", ".def", function (event) {
@@ -76,21 +81,24 @@ var enemy;
       // heroes.splice(parseInt(enemys),1);
         // console.log(enemy);
        
-       })
+      
+       $("button").on("click", function() {
+           
+        console.log("bad guy")
+       //  fight = true;
+       //  damage = attack + .atk;
+ 
+          console.log(damage);
+         if (fight === true) {
+             attack = attack + beaCard.atk;
+             fight = false;
+             
+         };
+    })
         
     })
 
-    $("button").on("click", function() {
-       console.log("bad guy")
-      //  fight = true;
-      //  damage = attack + .atk;
-
-         console.log(damage);
-        if (fight === true) {
-            attack = attack + beaCard.atk;
-            fight = false;
-            
-        };
+   
 
 
     })
