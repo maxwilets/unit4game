@@ -7,23 +7,15 @@ $(document).ready(function () {
     attacker = true
 
 
-
+    //creates class tags for the choosable characters
     var seph = $(".sephiroth");
-    // console.log(seph); 
-
-
     var light = $(".lightning");
-    // console.log(light)
-
     var bea = $(".beatrix");
-    // console.log(bea);
-
     var vin = $(".vincent");
-    // console.log(vin);
-    //setting an array for the characters
     var heroes = [
         seph, light, bea, vin
     ];
+    //sets an array to choose the characters from, wins, damage starts at 0
     var wins = 0
     var damage = 0;
     var badGuy;
@@ -32,25 +24,22 @@ $(document).ready(function () {
 
         //pulls value from html this value is equal to the selected
         //array index
-
+        //sets the chosen attackers hp, and attack
         var cardValue = event.currentTarget.attributes.value.value;
         hhp = parseInt(event.currentTarget.attributes.hp.value)
         attack = parseInt(event.currentTarget.attributes.atk.value);
         hero = $(this);
 
-
+            
         $(".character").after(hero);
         //removes the selected card form the array
         heroes.splice(parseInt(cardValue), 1);
 
 
-
-        attacker = false;
-
         //buts the new array in the attack1 div
         $(".attackl").html(heroes);
          alert("Now Choose an Enemy");
-        //  console.log($(".def"));
+        //  gives the aray a class of defece instead of hero
         for (var i = 0; i <= heroes.length; i++) {
             heroes[i].removeClass("hero");
             heroes[i].addClass("def");
@@ -62,22 +51,17 @@ $(document).ready(function () {
 
     $(this).on("click", ".def", function (event) {
 
-
+        //removes the selected defender from the array
         enemys = event.currentTarget.attributes.value.value;
         heroes.splice(parseInt(enemys), 1);
 
        
         badGuy = $(this);
         VBadGuy = [];
-        console.log(badGuy);
-
         //Stats for the enemy
         badHp = parseInt(event.currentTarget.attributes.hp.value);
         badName = (event.currentTarget.attributes.name.value);
         badCounter = parseInt(event.currentTarget.attributes.counter.value);
-
-
-
         (VBadGuy).push(badGuy, badHp, badName, badCounter);
         //put variables in an array
         //move the rest of the characters on a row 
@@ -90,7 +74,7 @@ $(document).ready(function () {
 
      
     })
-
+        //Statrs the fight by clicking attack button
         $("button").on("click", function () {
 
             var look = (badGuy.children($()));
@@ -123,7 +107,7 @@ $(document).ready(function () {
                 $(heroH3).html("<h5> HP: " + hhp + "</h5");
 
 
-         //   };
+          //Logic for wins each emeny defeted counts as a win
             if ((VBadGuy[1] <= 0) &&(wins === 2)) {
                 alert("You have won!");
                 location.reload(true);
